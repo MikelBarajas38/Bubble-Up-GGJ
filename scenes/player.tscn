@@ -1,0 +1,117 @@
+[gd_scene load_steps=16 format=3 uid="uid://dtc6ribkhsjcp"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_d2d54"]
+[ext_resource type="Texture2D" uid="uid://by4xf3dckbmqr" path="res://assets/sprites/ham/ham.png" id="2_f3bfc"]
+[ext_resource type="Texture2D" uid="uid://c0u87pqptwbwq" path="res://assets/sprites/bubble/bubble_lower_m.png" id="2_gxepg"]
+[ext_resource type="Texture2D" uid="uid://beiwj6lrquiso" path="res://assets/sprites/bubble/bubble_upper_m.png" id="3_egxet"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4bco"]
+radius = 71.007
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1q2vq"]
+load_path = "res://.godot/imported/ham.png-7e3cb123fc57350b56fe91822cb832a5.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abyth"]
+atlas = SubResource("CompressedTexture2D_1q2vq")
+region = Rect2(126, 254, 126, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aa8u"]
+atlas = SubResource("CompressedTexture2D_1q2vq")
+region = Rect2(0, 0, 126, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eldv"]
+atlas = SubResource("CompressedTexture2D_1q2vq")
+region = Rect2(126, 0, 126, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl231"]
+atlas = ExtResource("2_f3bfc")
+region = Rect2(0, 127, 126, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uswsm"]
+atlas = ExtResource("2_f3bfc")
+region = Rect2(126, 127, 126, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hht3p"]
+atlas = ExtResource("2_f3bfc")
+region = Rect2(252, 127, 126, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo42u"]
+atlas = ExtResource("2_f3bfc")
+region = Rect2(126, 127, 126, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcxuk"]
+atlas = SubResource("CompressedTexture2D_1q2vq")
+region = Rect2(0, 254, 126, 127)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ky0cm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abyth")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aa8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eldv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl231")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uswsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hht3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo42u")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcxuk")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_d2d54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -4)
+shape = SubResource("CircleShape2D_d4bco")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BubbleBackSprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -5)
+texture = ExtResource("2_gxepg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_ky0cm")
+animation = &"run"
+autoplay = "idle"
+
+[node name="BubbleFrontSprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -6)
+texture = ExtResource("3_egxet")
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
