@@ -19,7 +19,7 @@ var last_floor = false
 func _ready():
 	$CoyoteTimer.wait_time = coyote_frames / 60.0
 
-func get_input(delta):
+func handle_input(delta):
 
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
@@ -58,9 +58,7 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity.y = min(velocity.y, max_fall_speed)
 
-	get_input(delta)
-	handle_animation()
-	move_and_slide()
+	handle_input(delta)
 
 	if is_on_floor() and jumping:
 		jumping = false
@@ -74,6 +72,9 @@ func _physics_process(delta):
 		$AnimatedSprite2D.flip_h = true
 
 	last_floor = is_on_floor()
+
+	move_and_slide()
+	handle_animation()
 
 func _on_coyote_timer_timeout():
 	coyote = false
