@@ -75,5 +75,5 @@ func _physics_process(delta):
 
 	last_floor = is_on_floor()
 
-func _on_():
+func _on_coyote_timer_timeout():
 	coyote = false

@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dtc6ribkhsjcp"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_d2d54"]
-[ext_resource type="Texture2D" uid="uid://by4xf3dckbmqr" path="res://assets/sprites/ham/ham.png" id="2_f3bfc"]
+[ext_resource type="Texture2D" uid="uid://c001fuu20sopf" path="res://assets/sprites/ham/ham.png" id="2_f3bfc"]
 [ext_resource type="Texture2D" uid="uid://c0u87pqptwbwq" path="res://assets/sprites/bubble/bubble_lower_m.png" id="2_gxepg"]
 [ext_resource type="Texture2D" uid="uid://beiwj6lrquiso" path="res://assets/sprites/bubble/bubble_upper_m.png" id="3_egxet"]
 
@@ -23,19 +23,19 @@ region = Rect2(0, 0, 126, 127)
 atlas = SubResource("CompressedTexture2D_1q2vq")
 region = Rect2(126, 0, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fl231"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kexdi"]
 atlas = ExtResource("2_f3bfc")
 region = Rect2(0, 127, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uswsm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ash11"]
 atlas = ExtResource("2_f3bfc")
 region = Rect2(126, 127, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hht3p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntmid"]
 atlas = ExtResource("2_f3bfc")
 region = Rect2(252, 127, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mo42u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gmts"]
 atlas = ExtResource("2_f3bfc")
 region = Rect2(126, 127, 126, 127)
 
@@ -66,16 +66,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fl231")
+"texture": SubResource("AtlasTexture_kexdi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uswsm")
+"texture": SubResource("AtlasTexture_ash11")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hht3p")
+"texture": SubResource("AtlasTexture_ntmid")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mo42u")
+"texture": SubResource("AtlasTexture_5gmts")
 }],
 "loop": true,
 "name": &"run",
