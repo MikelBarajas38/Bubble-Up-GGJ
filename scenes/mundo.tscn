@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4vscd6dq0i3s"]
+[gd_scene load_steps=8 format=3 uid="uid://dtvoq2qxdm6xv"]
 
 [ext_resource type="PackedScene" uid="uid://dtc6ribkhsjcp" path="res://scenes/player.tscn" id="1_o82md"]
 [ext_resource type="Texture2D" uid="uid://c3ohgwkwucu5" path="res://assets/sprites/tiles/fishTilesheet@2.png" id="2_rkthx"]
