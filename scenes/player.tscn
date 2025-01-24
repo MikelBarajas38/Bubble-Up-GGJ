@@ -2,10 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_d2d54"]
 [ext_resource type="Texture2D" uid="uid://c001fuu20sopf" path="res://assets/sprites/ham/ham.png" id="2_f3bfc"]
-[ext_resource type="Texture2D" uid="uid://c0u87pqptwbwq" path="res://assets/sprites/bubble/bubble_lower_m.png" id="2_gxepg"]
-[ext_resource type="Texture2D" uid="uid://beiwj6lrquiso" path="res://assets/sprites/bubble/bubble_upper_m.png" id="3_egxet"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ujfnh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uylju"]
 atlas = ExtResource("2_f3bfc")
@@ -101,36 +97,44 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ujfnh"]
+radius = 6.53584
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ipuka"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xlyq0"]
+radius = 13.8864
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.98567, 1)
 script = ExtResource("1_d2d54")
-speed = null
-jump_speed = null
-acceleration = null
-friction = null
-base_gravity = null
-max_bubble_count = null
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.01454, -6)
-scale = Vector2(7.45247, 7.44)
-shape = SubResource("CircleShape2D_ujfnh")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="BubbleBackSprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, -5)
-texture = ExtResource("2_gxepg")
+[node name="BubbleBackSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_ky0cm")
-animation = &"down"
+animation = &"idle"
 autoplay = "idle"
 
-[node name="BubbleFrontSprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -6)
-texture = ExtResource("3_egxet")
+[node name="BubbleFrontSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionBubble1" type="CollisionShape2D" parent="."]
+position = Vector2(3.04362, 11)
+scale = Vector2(7.45247, 7.44)
+shape = SubResource("CircleShape2D_ujfnh")
+
+[node name="CollisionBubble2" type="CollisionShape2D" parent="."]
+position = Vector2(1.01454, -6)
+scale = Vector2(7.45247, 7.44)
+shape = SubResource("CircleShape2D_ipuka")
+
+[node name="CollisionBubble3" type="CollisionShape2D" parent="."]
+position = Vector2(1.01454, -35)
+scale = Vector2(7.45247, 7.44)
+shape = SubResource("CircleShape2D_xlyq0")
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
