@@ -104,6 +104,12 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.98567, 1)
 script = ExtResource("1_d2d54")
+speed = null
+jump_speed = null
+acceleration = null
+friction = null
+base_gravity = null
+max_bubble_count = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.01454, -6)
@@ -120,7 +126,7 @@ texture = ExtResource("2_gxepg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_ky0cm")
-animation = &"dead"
+animation = &"down"
 autoplay = "idle"
 
 [node name="BubbleFrontSprite2D" type="Sprite2D" parent="."]

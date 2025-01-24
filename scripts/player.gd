@@ -88,7 +88,7 @@ func handle_input(delta):
 		$CoyoteTimer.start()
 
 func handle_animation():
-
+	
 	if velocity.x > 0:
 		$AnimatedSprite2D.flip_h = false
 	if velocity.x < 0:
@@ -116,6 +116,9 @@ func _physics_process(delta):
 	handle_input(delta)
 
 	last_floor = is_on_floor()
+	
+	if dead:
+		handle_death() 
 
 	move_and_slide()
 	handle_animation()
