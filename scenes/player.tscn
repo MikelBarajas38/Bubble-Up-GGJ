@@ -5,8 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c0u87pqptwbwq" path="res://assets/sprites/bubble/bubble_lower_m.png" id="2_gxepg"]
 [ext_resource type="Texture2D" uid="uid://beiwj6lrquiso" path="res://assets/sprites/bubble/bubble_upper_m.png" id="3_egxet"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d4bco"]
-radius = 71.007
+[sub_resource type="CircleShape2D" id="CircleShape2D_ujfnh"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1q2vq"]
 load_path = "res://.godot/imported/ham.png-7e3cb123fc57350b56fe91822cb832a5.ctex"
@@ -95,8 +94,9 @@ scale = Vector2(0.98567, 1)
 script = ExtResource("1_d2d54")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -4)
-shape = SubResource("CircleShape2D_d4bco")
+position = Vector2(1.01454, -6)
+scale = Vector2(7.45247, 7.44)
+shape = SubResource("CircleShape2D_ujfnh")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
