@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dtc6ribkhsjcp"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_d2d54"]
-[ext_resource type="Texture2D" uid="uid://by4xf3dckbmqr" path="res://assets/sprites/ham/ham.png" id="2_f3bfc"]
+[ext_resource type="Texture2D" uid="uid://c001fuu20sopf" path="res://assets/sprites/ham/ham.png" id="2_f3bfc"]
 [ext_resource type="Texture2D" uid="uid://c0u87pqptwbwq" path="res://assets/sprites/bubble/bubble_lower_m.png" id="2_gxepg"]
 [ext_resource type="Texture2D" uid="uid://beiwj6lrquiso" path="res://assets/sprites/bubble/bubble_upper_m.png" id="3_egxet"]
 

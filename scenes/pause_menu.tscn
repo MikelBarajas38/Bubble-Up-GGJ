@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://qol3al6hr8b2"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_vh8rm"]
+
+[node name="pause_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vh8rm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.278, 0.389, 0.676, 0.5)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+offset_left = 190.0
+offset_top = 238.0
+offset_right = 390.0
+offset_bottom = 288.0
+scale = Vector2(3.85319, 3.99223)
+text = "			GAME PAUSED
+	PRESS P TO UNPAUSE"

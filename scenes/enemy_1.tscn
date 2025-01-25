@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://mmt4nm8lt54k" path="res://scenes/killzone.tscn" id="4_1mlos"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hxj8a"]
-load_path = "res://.godot/imported/Crab_Spritesheet.png-bb13652e71af01b8339c571f44341af0.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u1mw5"]
 atlas = SubResource("CompressedTexture2D_hxj8a")
