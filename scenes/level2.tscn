@@ -1,17 +1,13 @@
-<<<<<<< HEAD
-[gd_scene load_steps=12 format=3 uid="uid://bdbnwq4a73uwj"]
-=======
-[gd_scene load_steps=10 format=3 uid="uid://bdbnwq4a73uwj"]
->>>>>>> ff3d3425510ba523650f9300d9fffcec27c5b415
+[gd_scene load_steps=13 format=3 uid="uid://bdbnwq4a73uwj"]
 
 [ext_resource type="PackedScene" uid="uid://dtc6ribkhsjcp" path="res://scenes/player.tscn" id="1_l7ygl"]
 [ext_resource type="Texture2D" uid="uid://c3ohgwkwucu5" path="res://assets/sprites/tiles/fishTilesheet@2.png" id="2_hfhcf"]
 [ext_resource type="Texture2D" uid="uid://dgl73bcpqyxbm" path="res://assets/sprites/tiles/fishTilesheet.png" id="3_8dhti"]
 [ext_resource type="PackedScene" uid="uid://qol3al6hr8b2" path="res://scenes/pause_menu.tscn" id="4_f01b7"]
 [ext_resource type="PackedScene" uid="uid://c8eg7venpilr2" path="res://scenes/enemy_1.tscn" id="5_4aoo5"]
+[ext_resource type="AudioStream" uid="uid://b06x865llgwli" path="res://sound/music/level2.mp3" id="5_4u0yh"]
 [ext_resource type="PackedScene" uid="uid://j8itwqte1lyk" path="res://scenes/enemy_2.tscn" id="6_foeqm"]
 [ext_resource type="PackedScene" uid="uid://d1dnafqcebc3k" path="res://scenes/enemy_3.tscn" id="7_ycpj8"]
-[ext_resource type="AudioStream" uid="uid://b06x865llgwli" path="res://sound/music/level2.mp3" id="5_4u0yh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5x1t0"]
 distance = -130.0
@@ -734,12 +730,6 @@ sources/1 = SubResource("TileSetAtlasSource_w1ek7")
 
 [node name="Player" parent="." instance=ExtResource("1_l7ygl")]
 position = Vector2(0, 1352)
-speed = 500
-jump_speed = -800
-acceleration = 80
-friction = 20
-base_gravity = 1200
-max_bubble_count = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -1352)
@@ -844,6 +834,7 @@ position = Vector2(-1216, 1296)
 
 [node name="worm9" parent="." instance=ExtResource("7_ycpj8")]
 position = Vector2(64, 576)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_4u0yh")
 autoplay = true
