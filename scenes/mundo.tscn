@@ -687,6 +687,12 @@ sources/1 = SubResource("TileSetAtlasSource_w1ek7")
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_o82md")]
+speed = 500
+jump_speed = -800
+acceleration = 80
+friction = 20
+base_gravity = 1200
+max_bubble_count = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
