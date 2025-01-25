@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtvoq2qxdm6xv"]
+[gd_scene load_steps=8 format=3 uid="uid://clhst5ljd2347"]
 
 [ext_resource type="PackedScene" uid="uid://dtc6ribkhsjcp" path="res://scenes/player.tscn" id="1_o82md"]
 [ext_resource type="Texture2D" uid="uid://c3ohgwkwucu5" path="res://assets/sprites/tiles/fishTilesheet@2.png" id="2_rkthx"]
@@ -687,6 +687,12 @@ sources/1 = SubResource("TileSetAtlasSource_w1ek7")
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_o82md")]
+speed = 500
+jump_speed = -800
+acceleration = 80
+friction = 20
+base_gravity = 1200
+max_bubble_count = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

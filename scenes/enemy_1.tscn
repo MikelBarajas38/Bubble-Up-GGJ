@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8eg7venpilr2"]
+
+[ext_resource type="Script" path="res://scripts/enemy1.gd" id="1_xpryv"]
+[ext_resource type="Texture2D" uid="uid://km2mwgjefxir" path="res://assets/sprites/crab/Crab_Spritesheet.png" id="2_t21ki"]
+[ext_resource type="PackedScene" uid="uid://mmt4nm8lt54k" path="res://scenes/killzone.tscn" id="4_1mlos"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hxj8a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1mw5"]
+atlas = SubResource("CompressedTexture2D_hxj8a")
+region = Rect2(0, 0, 199, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gclpj"]
+atlas = ExtResource("2_t21ki")
+region = Rect2(0, 0, 199, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03cq2"]
+atlas = ExtResource("2_t21ki")
+region = Rect2(199, 0, 199, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyjh6"]
+atlas = ExtResource("2_t21ki")
+region = Rect2(398, 0, 199, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t626v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1mw5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gclpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03cq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyjh6")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pp4aj"]
+size = Vector2(165, 108)
+
+[node name="enemy1" type="Node2D"]
+script = ExtResource("1_xpryv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_t626v")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(104, -76)
+scale = Vector2(3.5, 3.06)
+
+[node name="Killzone" parent="." instance=ExtResource("4_1mlos")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(2, -3)
+shape = SubResource("RectangleShape2D_pp4aj")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -127,3 +127,8 @@ func _physics_process(delta):
 
 func _on_coyote_timer_timeout():
 	coyote = false
+
+
+func _on_globo_body_entered(body: Node2D) -> void:
+	if(body.get_name() == "Player"):
+		get_tree().reload_current_scene()

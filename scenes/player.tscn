@@ -24,19 +24,19 @@ region = Rect2(0, 0, 126, 127)
 atlas = SubResource("CompressedTexture2D_1q2vq")
 region = Rect2(126, 0, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kexdi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl231"]
 atlas = ExtResource("2_f3bfc")
 region = Rect2(0, 127, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ash11"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uswsm"]
 atlas = ExtResource("2_f3bfc")
 region = Rect2(126, 127, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ntmid"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hht3p"]
 atlas = ExtResource("2_f3bfc")
 region = Rect2(252, 127, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5gmts"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo42u"]
 atlas = ExtResource("2_f3bfc")
 region = Rect2(126, 127, 126, 127)
 
@@ -46,14 +46,6 @@ region = Rect2(0, 254, 126, 127)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ky0cm"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uylju")
-}],
-"loop": true,
-"name": &"dead",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_abyth")
@@ -75,16 +67,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kexdi")
+"texture": SubResource("AtlasTexture_fl231")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ash11")
+"texture": SubResource("AtlasTexture_uswsm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ntmid")
+"texture": SubResource("AtlasTexture_hht3p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5gmts")
+"texture": SubResource("AtlasTexture_mo42u")
 }],
 "loop": true,
 "name": &"run",
@@ -110,7 +102,8 @@ radius = 6.53584
 radius = 13.8864
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(0.98567, 1)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_d2d54")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
@@ -124,6 +117,7 @@ position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_ky0cm")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.454116
 
 [node name="BubbleFrontSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1qkfq")
