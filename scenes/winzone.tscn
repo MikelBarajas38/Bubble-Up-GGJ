@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bde8snmorpdnl"]
+
+[ext_resource type="Script" path="res://scripts/winzone.gd" id="1_dap7r"]
+
+[node name="Winzone" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_dap7r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
