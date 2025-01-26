@@ -73,6 +73,7 @@ func pop_bubble():
 	bubble_count -= 1
 	if bubble_count < 1:
 		bubble_count = 1
+		handle_death()
 	handle_bubble_change()
 
 func add_bubble():
