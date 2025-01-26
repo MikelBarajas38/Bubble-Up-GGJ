@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1dnafqcebc3k"]
+[gd_scene load_steps=17 format=3 uid="uid://d1dnafqcebc3k"]
 
 [ext_resource type="Script" path="res://scripts/enemy_3.gd" id="1_8ncul"]
 [ext_resource type="Texture2D" uid="uid://ncr165xtk216" path="res://assets/sprites/Worm/Worm_Spritesheet.png" id="2_442or"]
+[ext_resource type="Texture2D" uid="uid://c0sgws0osslhf" path="res://assets/sprites/bubble/particle_spritesheet.png" id="4_nrv4r"]
 [ext_resource type="PackedScene" uid="uid://mmt4nm8lt54k" path="res://scenes/killzone.tscn" id="5_88vc2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dogrm"]
@@ -88,6 +89,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5dem"]
 size = Vector2(9.5435, 17.6872)
 
+[sub_resource type="Curve" id="Curve_h427p"]
+_data = [Vector2(0, 0.0448244), 0.0, 0.170694, 0, 0, Vector2(0.992718, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="enemy3" type="Node2D"]
 scale = Vector2(1, 1.00225)
 script = ExtResource("1_8ncul")
@@ -102,8 +107,28 @@ autoplay = "idle"
 [node name="Killzone" parent="." instance=ExtResource("5_88vc2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(-6, 10.8076)
+position = Vector2(1, 10.9753)
 scale = Vector2(11.9453, 11.9402)
 shape = SubResource("RectangleShape2D_h5dem")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="BubbleParticlesBig2D" type="CPUParticles2D" parent="."]
+position = Vector2(6, -87.8025)
+emitting = false
+amount = 30
+lifetime = 12.0
+one_shot = true
+explosiveness = 0.9
+randomness = 0.31
+texture = ExtResource("4_nrv4r")
+emission_shape = 2
+emission_sphere_radius = 33.7
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, -300)
+initial_velocity_min = 57.95
+initial_velocity_max = 331.48
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_h427p")

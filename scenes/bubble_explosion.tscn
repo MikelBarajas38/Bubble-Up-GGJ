@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ms3xphiejlcn"]
+
+[ext_resource type="Texture2D" uid="uid://c0sgws0osslhf" path="res://assets/sprites/bubble/particle_spritesheet.png" id="1_8675i"]
+
+[sub_resource type="Curve" id="Curve_4a1os"]
+_data = [Vector2(0.00242719, 0.086876), 0.0, 0.170694, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="BubbleExplosion" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 6
+one_shot = true
+explosiveness = 1.0
+randomness = 0.31
+texture = ExtResource("1_8675i")
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, -20)
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_4a1os")

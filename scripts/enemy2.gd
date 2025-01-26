@@ -33,6 +33,7 @@ func _on_animation_finished() -> void:
 			current_phase = 0
 		else:
 			current_phase = 1
+			$BubbleParticlesSmall2D.emitting = true
 		growing = not growing
 		
 		timer.start()
@@ -43,6 +44,7 @@ func _on_timer_timeout():
 	_start_phase_animation()
 
 func _start_phase_animation():
+	$BubbleParticlesBig2D.emitting = true
 	if growing:
 		animated_sprite.play("start")
 	else:

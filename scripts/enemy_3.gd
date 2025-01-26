@@ -17,6 +17,7 @@ func worm_come_out() -> void:
 func worm_bite() -> void:
 	$Killzone/CollisionShape2D.disabled = false
 	$AnimatedSprite2D.play("bite")
+	$BubbleParticlesBig2D.emitting = true
 	await get_tree().create_timer(3.0).timeout
 
 func worm_go_down() -> void:

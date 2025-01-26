@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var base_gravity = 1200
 @export var max_bubble_count = 3
 
-var bubble_count = 2
+var bubble_count = Global.bubble_count
 
 var jumping = false
 var dead = false
@@ -32,14 +32,16 @@ func _ready():
 	handle_bubble_change()
 
 func handle_bubble_change():
+	Global.bubble_count = bubble_count
 	for shape in collision_shapes:
-		shape.disabled = true
-	collision_shapes[bubble_count-1].disabled = false
+		shape.set_deferred("disabled", true)
+	collision_shapes[bubble_count-1].set_deferred("disabled", false)
 	$BubbleBackSprite2D.play(str(bubble_count))
 	$BubbleFrontSprite2D.play(str(bubble_count))
 
 func handle_death():
 	dead = true
+	Global.bubble_count = 0
 	Engine.time_scale = 0.5
 	for shape in collision_shapes:
 		shape.set_deferred("disabled", true)
@@ -52,6 +54,8 @@ func handle_damage():
 	if invulnerable:
 		return
 
+	squash = true
+
 	if bubble_count > 1:
 		pop_bubble()
 		invulnerable = true
@@ -62,7 +66,7 @@ func handle_damage():
 			velocity.x = speed * 4
 		$DamageTimer.start()
 	else:
-		velocity.y = jump_speed * 0.5
+		velocity.y = jump_speed
 		if velocity.x > 0:
 			velocity.x = -speed * 4
 		else:
@@ -70,13 +74,15 @@ func handle_damage():
 		handle_death()
 
 func pop_bubble():
+	$PopParticles2D.emitting = true
 	bubble_count -= 1
 	if bubble_count < 1:
-		bubble_count = 1
+		bubble_count = 0
 		handle_death()
 	handle_bubble_change()
 
 func add_bubble():
+	$AddParticles2D.emitting = true
 	bubble_count += 1
 	if bubble_count > 3:
 		bubble_count = 3
@@ -92,7 +98,7 @@ func handle_input(delta):
 		velocity.x = lerp(velocity.x, 0.0, friction * delta)
 
 	if Input.is_action_just_pressed("bubble"):
-		add_bubble()
+		pop_bubble()
 
 	if Input.is_action_just_pressed("jump") and !invulnerable and !dead:
 		if is_on_floor() or coyote:
@@ -100,11 +106,13 @@ func handle_input(delta):
 			jump_count = jump_count + 1
 			jumping = true
 			stretch = true
+			$JumpParticles2D.emitting = true
 		elif jump_count < 2:
 			velocity.y = jump_speed
 			pop_bubble()
 			jump_count = jump_count + 1
 			stretch = true
+			$JumpParticles2D.emitting = true
 	
 	if !Input.is_action_pressed("jump") and jumping:
 		gravity = base_gravity * 2.5
@@ -123,35 +131,35 @@ func handle_input(delta):
 
 func handle_animation(delta):
 
-	if invulnerable or dead:
-		$AnimatedSprite2D.modulate = Color(1, 1, 1, 0.5)
-		$BubbleBackSprite2D.modulate = Color(1, 1, 1, 0.5)
-		$BubbleFrontSprite2D.modulate = Color(1, 1, 1, 0.5)
-		$AnimatedSprite2D.play("damage")
-		return
-
-	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1)
-	$BubbleBackSprite2D.modulate = Color(1, 1, 1, 1)
-	$BubbleFrontSprite2D.modulate = Color(1, 1, 1, 1)
+	$WalkParticles2D.emitting = false
 	
-	if velocity.x > 0:
+	if velocity.x > 0 and !dead and !invulnerable:
 		$AnimatedSprite2D.flip_h = false
 		$BubbleBackSprite2D.flip_h = false
 		$BubbleFrontSprite2D.flip_h = false
-	if velocity.x < 0:
+	
+	if velocity.x < 0 and !dead and !invulnerable:
 		$AnimatedSprite2D.flip_h = true
 		$BubbleBackSprite2D.flip_h = true
 		$BubbleFrontSprite2D.flip_h = true
 
-	if is_on_floor() and !jumping:
+	if invulnerable:
+		$AnimatedSprite2D.play("damage")
+	elif dead:
+		$AnimatedSprite2D.play("dead")
+	elif is_on_floor() and !jumping:
 		var moving = Input.get_axis("move_left", "move_right")
 		if moving:
 			$AnimatedSprite2D.play("run")
+			$WalkParticles2D.emitting = true
 		else:
 			$AnimatedSprite2D.play("idle")
 	else:
 		if velocity.y < 0:
-			$AnimatedSprite2D.play("up")
+			if jump_count < 2:
+				$AnimatedSprite2D.play("up")
+			else:
+				$AnimatedSprite2D.play("upup")
 		else:
 			$AnimatedSprite2D.play("down")
 			stretch = false
@@ -165,6 +173,7 @@ func handle_animation(delta):
 		$AnimatedSprite2D.scale = Vector2(1.3, 0.9)
 		$BubbleBackSprite2D.scale = Vector2(1.3, 0.9)
 		$BubbleFrontSprite2D.scale = Vector2(1.3, 0.9)
+		$JumpParticles2D .emitting = true
 		squash = false
 
 	$AnimatedSprite2D.scale.x = move_toward($AnimatedSprite2D.scale.x, 1, delta * 3)

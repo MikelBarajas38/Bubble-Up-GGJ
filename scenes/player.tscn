@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://d0nc3isbfuecu"]
+[gd_scene load_steps=30 format=3 uid="uid://d0nc3isbfuecu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_d2d54"]
 [ext_resource type="Texture2D" uid="uid://dahlc5vlrv11h" path="res://assets/sprites/bubble/bubble_lower_spritesheet.png" id="2_7apqm"]
-[ext_resource type="Texture2D" uid="uid://c001fuu20sopf" path="res://assets/sprites/ham/ham.png" id="2_f3bfc"]
+[ext_resource type="Texture2D" uid="uid://fslwkr72pxmi" path="res://assets/sprites/ham/Ham_Spritesheet(5).png" id="3_6dlms"]
 [ext_resource type="Texture2D" uid="uid://4g26o8yhgfs4" path="res://assets/sprites/bubble/bubble_upper_spritesheet.png" id="4_x25og"]
+[ext_resource type="Texture2D" uid="uid://c0sgws0osslhf" path="res://assets/sprites/bubble/particle_spritesheet.png" id="5_s35xq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_luicd"]
 atlas = ExtResource("2_7apqm")
@@ -44,50 +45,55 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qbnxg"]
-atlas = ExtResource("2_f3bfc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kjgd"]
+atlas = ExtResource("3_6dlms")
 region = Rect2(0, 381, 126, 127)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1q2vq"]
-load_path = "res://.godot/imported/ham.png-7e3cb123fc57350b56fe91822cb832a5.ctex"
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqxg5"]
+atlas = ExtResource("3_6dlms")
+region = Rect2(126, 381, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_abyth"]
-atlas = SubResource("CompressedTexture2D_1q2vq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi47p"]
+atlas = ExtResource("3_6dlms")
 region = Rect2(126, 254, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5aa8u"]
-atlas = SubResource("CompressedTexture2D_1q2vq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndte2"]
+atlas = ExtResource("3_6dlms")
 region = Rect2(0, 0, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4eldv"]
-atlas = SubResource("CompressedTexture2D_1q2vq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_15746"]
+atlas = ExtResource("3_6dlms")
 region = Rect2(126, 0, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fl231"]
-atlas = ExtResource("2_f3bfc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_817px"]
+atlas = ExtResource("3_6dlms")
 region = Rect2(0, 127, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uswsm"]
-atlas = ExtResource("2_f3bfc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cnri"]
+atlas = ExtResource("3_6dlms")
 region = Rect2(126, 127, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hht3p"]
-atlas = ExtResource("2_f3bfc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_es10q"]
+atlas = ExtResource("3_6dlms")
 region = Rect2(252, 127, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mo42u"]
-atlas = ExtResource("2_f3bfc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_48ne7"]
+atlas = ExtResource("3_6dlms")
 region = Rect2(126, 127, 126, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wcxuk"]
-atlas = SubResource("CompressedTexture2D_1q2vq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_41a2b"]
+atlas = ExtResource("3_6dlms")
 region = Rect2(0, 254, 126, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdspy"]
+atlas = ExtResource("3_6dlms")
+region = Rect2(252, 254, 126, 127)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ky0cm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qbnxg")
+"texture": SubResource("AtlasTexture_7kjgd")
 }],
 "loop": true,
 "name": &"damage",
@@ -95,7 +101,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_abyth")
+"texture": SubResource("AtlasTexture_bqxg5")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi47p")
 }],
 "loop": true,
 "name": &"down",
@@ -103,10 +117,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5aa8u")
+"texture": SubResource("AtlasTexture_ndte2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4eldv")
+"texture": SubResource("AtlasTexture_15746")
 }],
 "loop": true,
 "name": &"idle",
@@ -114,16 +128,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fl231")
+"texture": SubResource("AtlasTexture_817px")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uswsm")
+"texture": SubResource("AtlasTexture_3cnri")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hht3p")
+"texture": SubResource("AtlasTexture_es10q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mo42u")
+"texture": SubResource("AtlasTexture_48ne7")
 }],
 "loop": true,
 "name": &"run",
@@ -131,10 +145,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wcxuk")
+"texture": SubResource("AtlasTexture_41a2b")
 }],
 "loop": true,
 "name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdspy")
+}],
+"loop": true,
+"name": &"upup",
 "speed": 5.0
 }]
 
@@ -186,7 +208,12 @@ radius = 9.66021
 [sub_resource type="CircleShape2D" id="CircleShape2D_xlyq0"]
 radius = 12.8825
 
+[sub_resource type="Curve" id="Curve_3yub2"]
+_data = [Vector2(0, 0.0448244), 0.0, 0.170694, 0, 0, Vector2(0.992718, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_d2d54")
@@ -207,9 +234,9 @@ sprite_frames = SubResource("SpriteFrames_8yb21")
 animation = &"1"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(1, 3)
 sprite_frames = SubResource("SpriteFrames_ky0cm")
-animation = &"idle"
+animation = &"upup"
 autoplay = "idle"
 
 [node name="BubbleFrontSprite2D" type="AnimatedSprite2D" parent="."]
@@ -231,6 +258,84 @@ shape = SubResource("CircleShape2D_ipuka")
 position = Vector2(1.01454, -35)
 scale = Vector2(7.45247, 7.44)
 shape = SubResource("CircleShape2D_xlyq0")
+
+[node name="AddParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 0.5
+randomness = 0.31
+local_coords = true
+texture = ExtResource("5_s35xq")
+emission_shape = 2
+emission_sphere_radius = 36.8
+direction = Vector2(-1, -1)
+spread = 180.0
+gravity = Vector2(0, -200)
+initial_velocity_min = 57.95
+initial_velocity_max = 331.48
+angular_velocity_max = 720.0
+orbit_velocity_min = 0.2
+orbit_velocity_max = 0.5
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_3yub2")
+
+[node name="JumpParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-1, 61)
+emitting = false
+amount = 6
+one_shot = true
+explosiveness = 1.0
+randomness = 0.31
+texture = ExtResource("5_s35xq")
+emission_shape = 1
+emission_sphere_radius = 73.88
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, -500)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_3yub2")
+
+[node name="WalkParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-1, 61)
+emitting = false
+amount = 3
+lifetime = 0.5
+explosiveness = 0.04
+randomness = 0.31
+texture = ExtResource("5_s35xq")
+direction = Vector2(-1, 0)
+spread = 33.88
+gravity = Vector2(0, -300)
+initial_velocity_min = 156.48
+initial_velocity_max = 184.26
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_3yub2")
+
+[node name="PopParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+randomness = 0.31
+texture = ExtResource("5_s35xq")
+emission_shape = 2
+emission_sphere_radius = 86.21
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, -200)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.2
+orbit_velocity_max = 0.2
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_3yub2")
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

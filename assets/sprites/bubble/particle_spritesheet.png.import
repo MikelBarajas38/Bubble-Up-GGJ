@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmu1v8d4l84yd"
-path="res://.godot/imported/ham.png-7e3cb123fc57350b56fe91822cb832a5.ctex"
+uid="uid://c0sgws0osslhf"
+path="res://.godot/imported/particle_spritesheet.png-62fbf0352d1a331b1584a2c90a158779.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ham/ham.png"
-dest_files=["res://.godot/imported/ham.png-7e3cb123fc57350b56fe91822cb832a5.ctex"]
+source_file="res://assets/sprites/bubble/particle_spritesheet.png"
+dest_files=["res://.godot/imported/particle_spritesheet.png-62fbf0352d1a331b1584a2c90a158779.ctex"]
 
 [params]
 

@@ -12,6 +12,9 @@ func _ready() -> void:
 	add_child(timer)
 
 func _process(delta: float) -> void:
+	
+	$WalkParticles2D.emitting = false
+	
 	if !$RayCast2D.is_colliding() and can_move:
 		can_move = false
 		speed = -speed
@@ -20,6 +23,7 @@ func _process(delta: float) -> void:
 
 	if can_move:
 		position.x += speed * delta
+		$WalkParticles2D.emitting = true
 
 func _on_timer_timeout() -> void:
 	can_move = true

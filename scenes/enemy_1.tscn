@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8eg7venpilr2"]
+[gd_scene load_steps=13 format=3 uid="uid://c8eg7venpilr2"]
 
 [ext_resource type="Script" path="res://scripts/enemy1.gd" id="1_xpryv"]
 [ext_resource type="Texture2D" uid="uid://km2mwgjefxir" path="res://assets/sprites/crab/Crab_Spritesheet.png" id="2_t21ki"]
 [ext_resource type="PackedScene" uid="uid://mmt4nm8lt54k" path="res://scenes/killzone.tscn" id="4_1mlos"]
+[ext_resource type="Texture2D" uid="uid://c0sgws0osslhf" path="res://assets/sprites/bubble/particle_spritesheet.png" id="4_nrtyq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hxj8a"]
 
@@ -53,6 +54,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pp4aj"]
 size = Vector2(165, 108)
 
+[sub_resource type="Curve" id="Curve_mhba3"]
+_data = [Vector2(0, 0.0448244), 0.0, 0.170694, 0, 0, Vector2(0.992718, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="enemy1" type="Node2D"]
 script = ExtResource("1_xpryv")
 
@@ -75,5 +80,22 @@ position = Vector2(2, -3)
 shape = SubResource("RectangleShape2D_pp4aj")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="WalkParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-7, 47)
+emitting = false
+amount = 3
+lifetime = 0.5
+explosiveness = 0.04
+randomness = 0.31
+texture = ExtResource("4_nrtyq")
+direction = Vector2(-1, 0)
+spread = 33.88
+gravity = Vector2(0, -300)
+initial_velocity_min = 156.48
+initial_velocity_max = 184.26
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_mhba3")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
