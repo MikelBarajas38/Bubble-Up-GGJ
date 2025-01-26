@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0urhpnetv3n0"]
+
+[ext_resource type="PackedScene" uid="uid://bde8snmorpdnl" path="res://scenes/winzone.tscn" id="1_77a78"]
+[ext_resource type="Texture2D" uid="uid://bc1l65cx18yr5" path="res://assets/sprites/bubble_sheet/bubble_spritesheet.png" id="2_cldk6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1wkc5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhx0p"]
+atlas = ExtResource("2_cldk6")
+region = Rect2(0, 0, 126, 126)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofo7d"]
+atlas = ExtResource("2_cldk6")
+region = Rect2(126, 0, 126, 126)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrarl"]
+atlas = ExtResource("2_cldk6")
+region = Rect2(252, 0, 126, 126)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7s5r4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhx0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofo7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrarl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="NextLevel" type="Node2D"]
+
+[node name="Winzone" parent="." instance=ExtResource("1_77a78")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Winzone"]
+position = Vector2(3, -2)
+scale = Vector2(-3.84497, -4.20265)
+shape = SubResource("CircleShape2D_1wkc5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_7s5r4")
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.0657797
