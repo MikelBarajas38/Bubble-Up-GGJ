@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu3l7xgwubvio"]
+
+[ext_resource type="PackedScene" uid="uid://d0nc3isbfuecu" path="res://scenes/player.tscn" id="1_r7f3q"]
+[ext_resource type="PackedScene" uid="uid://bu3y6cseso26g" path="res://scenes/bubble_pickup.tscn" id="2_yf3g2"]
+[ext_resource type="PackedScene" uid="uid://c8eg7venpilr2" path="res://scenes/enemy_1.tscn" id="4_v8y3v"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hlkd0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_r7f3q")]
+position = Vector2(0, 33)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -33)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 178)
+shape = SubResource("WorldBoundaryShape2D_hlkd0")
+
+[node name="BubblePickup" parent="." instance=ExtResource("2_yf3g2")]
+position = Vector2(275, 0)
+
+[node name="enemy1" parent="." instance=ExtResource("4_v8y3v")]
+position = Vector2(421, 127)

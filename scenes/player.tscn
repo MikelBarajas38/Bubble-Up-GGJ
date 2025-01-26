@@ -1,11 +1,50 @@
-[gd_scene load_steps=19 format=3 uid="uid://dtc6ribkhsjcp"]
+[gd_scene load_steps=27 format=3 uid="uid://d0nc3isbfuecu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_d2d54"]
+[ext_resource type="Texture2D" uid="uid://dahlc5vlrv11h" path="res://assets/sprites/bubble/bubble_lower_spritesheet.png" id="2_7apqm"]
 [ext_resource type="Texture2D" uid="uid://c001fuu20sopf" path="res://assets/sprites/ham/ham.png" id="2_f3bfc"]
+[ext_resource type="Texture2D" uid="uid://4g26o8yhgfs4" path="res://assets/sprites/bubble/bubble_upper_spritesheet.png" id="4_x25og"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luicd"]
+atlas = ExtResource("2_7apqm")
+region = Rect2(0, 0, 254, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tllxx"]
+atlas = ExtResource("2_7apqm")
+region = Rect2(254, 0, 254, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjj2n"]
+atlas = ExtResource("2_7apqm")
+region = Rect2(508, 0, 254, 254)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8yb21"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luicd")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tllxx")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjj2n")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uylju"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbnxg"]
 atlas = ExtResource("2_f3bfc")
 region = Rect2(0, 381, 126, 127)
 
@@ -48,6 +87,14 @@ region = Rect2(0, 254, 126, 127)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qbnxg")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_abyth")
 }],
 "loop": true,
@@ -63,7 +110,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -80,7 +127,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -91,15 +138,53 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2vxd"]
+atlas = ExtResource("4_x25og")
+region = Rect2(0, 0, 254, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_035mx"]
+atlas = ExtResource("4_x25og")
+region = Rect2(254, 0, 254, 254)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iro0"]
+atlas = ExtResource("4_x25og")
+region = Rect2(508, 0, 254, 254)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_1qkfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2vxd")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_035mx")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iro0")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ujfnh"]
 radius = 6.53584
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ipuka"]
+radius = 9.66021
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xlyq0"]
-radius = 13.8864
+radius = 12.8825
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
@@ -109,18 +194,28 @@ script = ExtResource("1_d2d54")
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[node name="DeathTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="BubbleBackSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -60)
 sprite_frames = SubResource("SpriteFrames_8yb21")
+animation = &"1"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_ky0cm")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.454116
 
 [node name="BubbleFrontSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -60)
 sprite_frames = SubResource("SpriteFrames_1qkfq")
+animation = &"1"
 
 [node name="CollisionBubble1" type="CollisionShape2D" parent="."]
 position = Vector2(3.04362, 11)
@@ -138,3 +233,5 @@ scale = Vector2(7.45247, 7.44)
 shape = SubResource("CircleShape2D_xlyq0")
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
