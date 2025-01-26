@@ -1,9 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://d0nc3isbfuecu"]
+[gd_scene load_steps=30 format=3 uid="uid://d0nc3isbfuecu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_d2d54"]
 [ext_resource type="Texture2D" uid="uid://dahlc5vlrv11h" path="res://assets/sprites/bubble/bubble_lower_spritesheet.png" id="2_7apqm"]
 [ext_resource type="Texture2D" uid="uid://c001fuu20sopf" path="res://assets/sprites/ham/ham.png" id="2_f3bfc"]
 [ext_resource type="Texture2D" uid="uid://4g26o8yhgfs4" path="res://assets/sprites/bubble/bubble_upper_spritesheet.png" id="4_x25og"]
+[ext_resource type="AudioStream" uid="uid://ddo88sqs6s5wi" path="res://sound/sound_effects/gameover.wav" id="5_2fcqt"]
+[ext_resource type="AudioStream" uid="uid://dgcwjqodjt5p4" path="res://sound/sound_effects/jump.wav" id="6_o8i67"]
+[ext_resource type="AudioStream" uid="uid://c3wt0ruc1t0fw" path="res://sound/sound_effects/pop.ogg" id="7_1rgoi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_luicd"]
 atlas = ExtResource("2_7apqm")
@@ -231,6 +234,15 @@ shape = SubResource("CircleShape2D_ipuka")
 position = Vector2(1.01454, -35)
 scale = Vector2(7.45247, 7.44)
 shape = SubResource("CircleShape2D_xlyq0")
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2fcqt")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_o8i67")
+
+[node name="PopSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_1rgoi")
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
