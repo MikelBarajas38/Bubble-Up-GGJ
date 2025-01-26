@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://xr7aty1q2yc"]
 
-[ext_resource type="PackedScene" path="res://scenes/winzone.tscn" id="1_77a78"]
+[ext_resource type="PackedScene" uid="uid://bde8snmorpdnl" path="res://scenes/winzone.tscn" id="1_77a78"]
 [ext_resource type="Texture2D" uid="uid://bc1l65cx18yr5" path="res://assets/sprites/bubble_sheet/bubble_spritesheet.png" id="2_cldk6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1wkc5"]
