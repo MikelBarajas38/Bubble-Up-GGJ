@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdbnwq4a73uwj"]
+[gd_scene load_steps=15 format=3 uid="uid://bdbnwq4a73uwj"]
 
 [ext_resource type="PackedScene" uid="uid://d0nc3isbfuecu" path="res://scenes/player.tscn" id="1_l7ygl"]
 [ext_resource type="Texture2D" uid="uid://c3ohgwkwucu5" path="res://assets/sprites/tiles/fishTilesheet@2.png" id="2_hfhcf"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b06x865llgwli" path="res://sound/music/level2.mp3" id="5_4u0yh"]
 [ext_resource type="PackedScene" uid="uid://j8itwqte1lyk" path="res://scenes/enemy_2.tscn" id="6_foeqm"]
 [ext_resource type="PackedScene" uid="uid://d1dnafqcebc3k" path="res://scenes/enemy_3.tscn" id="7_ycpj8"]
+[ext_resource type="PackedScene" uid="uid://bde8snmorpdnl" path="res://scenes/winzone.tscn" id="9_bt3p5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5x1t0"]
 distance = -130.0
@@ -726,6 +727,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1r3wx")
 sources/1 = SubResource("TileSetAtlasSource_w1ek7")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwt43"]
+size = Vector2(3400, 200)
+
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_l7ygl")]
@@ -838,3 +842,11 @@ position = Vector2(64, 576)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_4u0yh")
 autoplay = true
+
+[node name="Winzone" parent="." instance=ExtResource("9_bt3p5")]
+next_level = "res://scenes/level3.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Winzone"]
+position = Vector2(31, -1767)
+shape = SubResource("RectangleShape2D_wwt43")
+debug_color = Color(0.968627, 0, 0.462745, 0.345098)
