@@ -93,7 +93,7 @@ func handle_input(delta):
 	if Input.is_action_just_pressed("bubble"):
 		add_bubble()
 
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and !invulnerable and !dead:
 		if is_on_floor() or coyote:
 			velocity.y = jump_speed
 			jump_count = jump_count + 1

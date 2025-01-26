@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bhcijeofc6h47"]
 [gd_scene load_steps=13 format=3 uid="uid://dc7t74gtuch8n"]
 
-[ext_resource type="PackedScene" uid="uid://d0nc3isbfuecu" path="res://scenes/player.tscn" id="1_gcqrm"]
+[ext_resource type="PackedScene" uid="uid://dtc6ribkhsjcp" path="res://scenes/player.tscn" id="1_gcqrm"]
 [ext_resource type="Texture2D" uid="uid://c3ohgwkwucu5" path="res://assets/sprites/tiles/fishTilesheet@2.png" id="2_wbvkp"]
 [ext_resource type="Texture2D" uid="uid://dgl73bcpqyxbm" path="res://assets/sprites/tiles/fishTilesheet.png" id="3_an1d8"]
 
@@ -839,4 +839,3 @@ position = Vector2(392, -232)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_fh3md")
 autoplay = true
-
