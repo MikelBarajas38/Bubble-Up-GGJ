@@ -88,7 +88,8 @@ func add_bubble():
 	$AddParticles2D.emitting = true
 	bubble_count += 1
 	if bubble_count > 3:
-		bubble_count = 3
+		bubble_count = 0
+		handle_death()
 	handle_bubble_change()
 
 func handle_input(delta):

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjyaej7a3w3i2"]
+[gd_scene load_steps=6 format=3 uid="uid://bjyaej7a3w3i2"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_2nly2"]
 [ext_resource type="AudioStream" uid="uid://s60jel2pm0hl" path="res://sound/music/menu_screen.mp3" id="2_0lo4m"]
+[ext_resource type="Texture2D" uid="uid://0go5h8dt3y0o" path="res://assets/backgrounds/Intro.png" id="2_qsr3y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idrqm"]
 bg_color = Color(0.262745, 0.635294, 0.811765, 1)
@@ -18,17 +19,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2nly2")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_qsr3y")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -125.0
-offset_right = 125.0
-offset_bottom = 125.0
+offset_left = 311.0
+offset_top = 151.0
+offset_right = 561.0
+offset_bottom = 401.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -36,12 +44,12 @@ alignment = 1
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxFlat_idrqm")
-text = "START GAME"
+text = "Start Game"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxFlat_wo4oy")
-text = "QUIT"
+text = "Quit"
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_0lo4m")
