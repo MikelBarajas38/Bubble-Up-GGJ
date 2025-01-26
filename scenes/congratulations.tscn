@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://btj8xrw3x7dm0"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_cda1h"]
+[ext_resource type="AudioStream" uid="uid://1btgoe0jnc1" path="res://sound/music/congratulations.ogg" id="2_kgwf3"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_cda1h")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 118.0
+offset_top = 178.0
+offset_right = 274.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.70253, 5.27222)
+pivot_offset = Vector2(114.723, 86.9299)
+text = "CONGRATULATIONS"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = 75.0
+offset_right = 100.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.49308, 2.78101)
+pivot_offset = Vector2(107.066, 33.69)
+
+[node name="StartAgain" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start Again"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kgwf3")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/StartAgain" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

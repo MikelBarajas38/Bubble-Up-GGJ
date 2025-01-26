@@ -33,6 +33,7 @@ func _ready():
 
 func handle_bubble_change():
 	Global.bubble_count = bubble_count
+	$PopSound.play()
 	for shape in collision_shapes:
 		shape.set_deferred("disabled", true)
 	collision_shapes[bubble_count-1].set_deferred("disabled", false)
@@ -47,6 +48,8 @@ func handle_death():
 		shape.set_deferred("disabled", true)
 	$BubbleBackSprite2D.set_deferred("visible", false)
 	$BubbleFrontSprite2D.set_deferred("visible", false)
+	$GameOverSound.play()
+	$DeathTimer.wait_time = 1.5
 	$DeathTimer.start()
 
 func handle_damage():
@@ -71,7 +74,7 @@ func handle_damage():
 			velocity.x = -speed * 4
 		else:
 			velocity.x = speed * 4
-		handle_death()
+
 
 func pop_bubble():
 	$PopParticles2D.emitting = true
@@ -107,12 +110,15 @@ func handle_input(delta):
 			jumping = true
 			stretch = true
 			$JumpParticles2D.emitting = true
+			$JumpSound.play()
+			
 		elif jump_count < 2:
 			velocity.y = jump_speed
 			pop_bubble()
 			jump_count = jump_count + 1
 			stretch = true
 			$JumpParticles2D.emitting = true
+			$JumpSound.play()
 	
 	if !Input.is_action_pressed("jump") and jumping:
 		gravity = base_gravity * 2.5
@@ -200,4 +206,4 @@ func _on_damage_timer_timeout():
 
 func _on_death_timer_timeout():
 	Engine.time_scale = 1
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")

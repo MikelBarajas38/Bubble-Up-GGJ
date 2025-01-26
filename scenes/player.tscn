@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://fslwkr72pxmi" path="res://assets/sprites/ham/Ham_Spritesheet(5).png" id="3_6dlms"]
 [ext_resource type="Texture2D" uid="uid://4g26o8yhgfs4" path="res://assets/sprites/bubble/bubble_upper_spritesheet.png" id="4_x25og"]
 [ext_resource type="Texture2D" uid="uid://c0sgws0osslhf" path="res://assets/sprites/bubble/particle_spritesheet.png" id="5_s35xq"]
+[ext_resource type="AudioStream" uid="uid://ddo88sqs6s5wi" path="res://sound/sound_effects/gameover.wav" id="5_2fcqt"]
+[ext_resource type="AudioStream" uid="uid://dgcwjqodjt5p4" path="res://sound/sound_effects/jump.wav" id="6_o8i67"]
+[ext_resource type="AudioStream" uid="uid://c3wt0ruc1t0fw" path="res://sound/sound_effects/pop.ogg" id="7_1rgoi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_luicd"]
 atlas = ExtResource("2_7apqm")
@@ -336,6 +339,15 @@ orbit_velocity_max = 0.2
 scale_amount_min = 2.0
 scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_3yub2")
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2fcqt")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_o8i67")
+
+[node name="PopSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_1rgoi")
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

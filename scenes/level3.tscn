@@ -813,7 +813,7 @@ position = Vector2(328, 208)
 [node name="worm8" parent="." instance=ExtResource("7_l38pd")]
 position = Vector2(816, 408)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_td2s4")
 autoplay = true
 
@@ -856,7 +856,7 @@ position = Vector2(576, 564)
 position = Vector2(84, -1252)
 
 [node name="BubblePickup11" parent="." instance=ExtResource("10_f5ol3")]
-position = Vector2(420, -920)
+position = Vector2(405, -1011)
 
 [node name="BubblePickup12" parent="." instance=ExtResource("10_f5ol3")]
 position = Vector2(1532, -1288)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjyaej7a3w3i2"]
+[gd_scene load_steps=5 format=3 uid="uid://bjyaej7a3w3i2"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_2nly2"]
+[ext_resource type="AudioStream" uid="uid://s60jel2pm0hl" path="res://sound/music/menu_screen.mp3" id="2_0lo4m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idrqm"]
 bg_color = Color(0.262745, 0.635294, 0.811765, 1)
@@ -41,6 +42,10 @@ text = "START GAME"
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxFlat_wo4oy")
 text = "QUIT"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0lo4m")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

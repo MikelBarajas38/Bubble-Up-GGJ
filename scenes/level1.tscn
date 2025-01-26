@@ -815,7 +815,7 @@ position = Vector2(360, -864)
 [node name="worm7" parent="." instance=ExtResource("7_vdvxj")]
 position = Vector2(392, -232)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_fh3md")
 autoplay = true
 
