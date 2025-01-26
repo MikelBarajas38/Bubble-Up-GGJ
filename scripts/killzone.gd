@@ -3,7 +3,7 @@ extends Area2D
 @onready var timer = $Timer
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and timer.is_stopped():
+	if body.name == "Player":
 		body.handle_damage()
 
 func _on_timer_timeout() -> void:

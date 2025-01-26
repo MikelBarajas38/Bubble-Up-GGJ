@@ -48,9 +48,9 @@ func handle_death():
 		shape.set_deferred("disabled", true)
 	$BubbleBackSprite2D.set_deferred("visible", false)
 	$BubbleFrontSprite2D.set_deferred("visible", false)
-	$GameOverSound.play()
 	$DeathTimer.wait_time = 1.5
 	$DeathTimer.start()
+	$GameOverSound.play()
 
 func handle_damage():
 
@@ -74,7 +74,7 @@ func handle_damage():
 			velocity.x = -speed * 4
 		else:
 			velocity.x = speed * 4
-
+		handle_death()
 
 func pop_bubble():
 	$PopParticles2D.emitting = true
