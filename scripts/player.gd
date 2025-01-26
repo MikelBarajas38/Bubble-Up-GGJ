@@ -19,15 +19,17 @@ var coyote = false
 var last_floor = false
 
 var bubble_count = 1
-var scale_map = [0, 0.5, 1.0, 1.5]
-var base_radius = 0
+var collision_shapes = []
 
 func _ready():
-	base_radius = $CollisionShape2D.shape.radius
+	collision_shapes = [$CollisionBubble1, $CollisionBubble2, $CollisionBubble3]
 	$CoyoteTimer.wait_time = coyote_frames / 60.0
+	handle_bubble_change()
 
 func handle_bubble_change():
-	$CollisionShape2D.shape.radius = base_radius * scale_map[bubble_count]
+	for shape in collision_shapes:
+		shape.disabled = true
+	collision_shapes[bubble_count-1].disabled = false
 
 func handle_death():
 	pass

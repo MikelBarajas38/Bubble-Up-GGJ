@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dtc6ribkhsjcp" path="res://scenes/player.tscn" id="1_o82md"]
 [ext_resource type="Texture2D" uid="uid://c3ohgwkwucu5" path="res://assets/sprites/tiles/fishTilesheet@2.png" id="2_rkthx"]
 [ext_resource type="Texture2D" uid="uid://dgl73bcpqyxbm" path="res://assets/sprites/tiles/fishTilesheet.png" id="3_3kd2p"]
-[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="11_v4vf0"]
+[ext_resource type="PackedScene" uid="uid://qol3al6hr8b2" path="res://scenes/pause_menu.tscn" id="11_v4vf0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1r3wx"]
 texture = ExtResource("2_rkthx")
@@ -687,6 +687,12 @@ sources/1 = SubResource("TileSetAtlasSource_w1ek7")
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_o82md")]
+speed = 500
+jump_speed = -800
+acceleration = 80
+friction = 20
+base_gravity = 1200
+max_bubble_count = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
